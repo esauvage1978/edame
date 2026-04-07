@@ -1,9 +1,10 @@
 /**
- * Rasterise public/favicon.svg vers les PNG listés dans le manifeste / BaseLayout.
+ * Rasterise public/favicon.svg vers les PNG + favicon.ico (anciens navigateurs / favoris).
  * Exécution : npm run favicons
  */
+import pngToIco from 'png-to-ico';
 import sharp from 'sharp';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -27,3 +28,12 @@ for (const [filename, size] of outputs) {
     .toFile(join(root, 'public', filename));
   console.log('OK', filename, size);
 }
+
+const icoPaths = [
+  join(root, 'public', 'favicon-16x16.png'),
+  join(root, 'public', 'favicon-32x32.png'),
+  join(root, 'public', 'favicon-48x48.png'),
+];
+const icoBuf = await pngToIco(icoPaths);
+writeFileSync(join(root, 'public', 'favicon.ico'), icoBuf);
+console.log('OK', 'favicon.ico', '(16+32+48)');
