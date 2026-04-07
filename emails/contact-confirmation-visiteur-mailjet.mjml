@@ -1,0 +1,163 @@
+<!--
+  Template MJML — Confirmation d'envoi au visiteur (EDAME)
+  Charte alignée sur contact-notification-mailjet.mjml (cyan #2cafc4, vert #30d431, texte #1a2e33).
+
+  À envoyer au même {{var:email}} que celui saisi dans le formulaire (2e flux Zapier / Mailjet).
+
+  Compiler : npx mjml emails/contact-confirmation-visiteur-mailjet.mjml -o emails/contact-confirmation-visiteur-mailjet.html
+
+  Variables — champs actuels du formulaire contact.astro (name, email, phone, message, privacy_consent) :
+    {{var:name}}                      — Nom complet
+    {{var:email}}                     — Adresse e-mail
+    {{var:phone}}                     — Téléphone (optionnel)
+    {{var:message}}                   — Corps du message
+    {{var:source}}                    — ex. edame-fr
+    {{var:page}}                      — URL de la page au moment de l'envoi (optionnel)
+
+  Optionnel (si vous ajoutez un select / champ société plus tard, ou mappez à une valeur fixe dans Zapier) :
+    {{var:company}}                   — Société (peut être vide)
+    {{var:objet}}                     — Code thème (ex. general)
+    {{var:objet_label}}               — Libellé lisible (sinon laisser vide ou dupliquer {{var:objet}})
+
+  Consentement RGPD (case « politique de confidentialité ») :
+    {{var:privacy_policy_accepted}}   — ex. true
+    {{var:privacy_policy_accepted_at}}— Horodatage ISO
+
+    {{var:submitted_at}}              — Horodatage ISO (envoi du formulaire)
+-->
+<mjml>
+  <mj-head>
+    <mj-title>Votre message a bien été envoyé — EDAME</mj-title>
+    <mj-preview>Merci : nous avons bien reçu votre demande. Récapitulatif ci-dessous.</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="system-ui, 'Segoe UI', Helvetica, Arial, sans-serif" />
+      <mj-text color="#1a2e33" font-size="16px" line-height="24px" />
+      <mj-button
+        background-color="#30d431"
+        color="#ffffff"
+        font-size="16px"
+        font-weight="600"
+        border-radius="10px"
+        inner-padding="14px 28px"
+      />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#e8f7f9" width="600px">
+    <mj-section background-color="#1a6b7a" padding="24px 40px 20px">
+      <mj-column width="100%">
+        <mj-image
+          src="https://edame.fr/image/cropped-logo-web-transparent.png"
+          alt="EDAME — Educ à la Maison et à l'Ecole"
+          width="180px"
+          padding-bottom="8px"
+          href="https://edame.fr/"
+        />
+        <mj-text
+          align="center"
+          font-size="13px"
+          font-weight="700"
+          letter-spacing="0.06em"
+          text-transform="uppercase"
+          color="#e2f4f8"
+          padding="0"
+          line-height="20px"
+        >
+          Educ à la Maison et à l'Ecole
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0" background-color="#1a6b7a">
+      <mj-column width="100%">
+        <mj-divider border-width="3px" border-color="#30d431" padding="0" />
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff" padding="28px 40px 12px">
+      <mj-column width="100%">
+        <mj-text font-size="20px" font-weight="700" color="#1a6b7a" padding-bottom="8px">
+          Bonjour {{var:name}},
+        </mj-text>
+        <mj-text font-size="15px" color="#475569" padding-bottom="0">
+          Nous avons bien reçu votre message via le formulaire de contact de
+          <strong style="color: #1a6b7a">edame.fr</strong>. Vous trouvez ci-dessous une copie des informations
+          que vous nous avez transmises. Nous vous répondrons à l’adresse
+          <a href="mailto:{{var:email}}" style="color: #2cafc4; font-weight: 600;">{{var:email}}</a>
+          dès que possible (sous 48 h ouvrées en général).
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff" padding="8px 40px 8px">
+      <mj-column width="100%">
+        <mj-text font-size="15px" font-weight="700" color="#1a6b7a" padding-bottom="12px">
+          Récapitulatif de votre demande
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff" padding="0 40px 20px">
+      <mj-column width="100%">
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1a6b7a">Objet (code)</strong><br />
+          {{var:objet}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1a6b7a">Objet (libellé)</strong><br />
+          {{var:objet_label}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1a6b7a">Nom</strong><br />
+          {{var:name}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1a6b7a">Société</strong><br />
+          {{var:company}}
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1a6b7a">Adresse e-mail</strong><br />
+          <a href="mailto:{{var:email}}" style="color: #2cafc4; font-weight: 600;">{{var:email}}</a>
+        </mj-text>
+        <mj-text padding-bottom="12px">
+          <strong style="color: #1a6b7a">Téléphone</strong><br />
+          {{var:phone}}
+        </mj-text>
+        <mj-text padding-bottom="8px">
+          <strong style="color: #1a6b7a">Message</strong>
+        </mj-text>
+        <mj-text padding="12px 16px" container-background-color="#f0fafc" color="#1a2e33">
+          {{var:message}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#ffffff" padding="0 40px 28px">
+      <mj-column width="100%">
+        <mj-button href="https://edame.fr/" align="left">Retour au site</mj-button>
+      </mj-column>
+    </mj-section>
+
+    <mj-section background-color="#e2f4f8" padding="22px 40px">
+      <mj-column width="100%">
+        <mj-text font-size="12px" color="#475569" align="center" padding="0">
+          <a href="https://edame.fr/politique-confidentialite/" style="color: #1a6b7a;">Politique de confidentialité</a>
+          ·
+          <a href="https://edame.fr/contact/" style="color: #1a6b7a;">Contact</a>
+          <br /><br />
+          EDAME — Educ à la Maison et à l'Ecole —
+          <a href="https://edame.fr/" style="color: #2cafc4; font-weight: 600;">edame.fr</a>
+          <br />
+          <span style="color: #64748b;">
+            Consentement politique de confidentialité : {{var:privacy_policy_accepted}} ({{var:privacy_policy_accepted_at}})<br />
+            Envoyé le : {{var:submitted_at}} · Page : {{var:page}}
+          </span>
+          <br /><br />
+          <span style="color: #5a6570;">
+            Cet e-mail confirme la réception de votre message ; merci de ne pas y répondre directement si ce n’est pas nécessaire
+            (utilisez une nouvelle demande depuis le site ou notre e-mail habituel si besoin).
+          </span>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
