@@ -1,0 +1,65 @@
+---
+// Bandeau de consentement cookies - RGPD
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-eerie/95 text-white shadow-lg hidden">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="text-sm sm:text-base">
+      Ce site utilise des cookies pour son fonctionnement et le choix de vos préférences. 
+      <a href="/cookies/" class="underline hover:opacity-90">En savoir plus</a>
+    </p>
+    <div class="flex gap-3 flex-shrink-0">
+      <button id="cookie-accept" class="px-4 py-2 bg-sage text-white rounded-full text-sm font-medium hover:bg-sage-light transition-colors">
+        Tout accepter
+      </button>
+      <button id="cookie-refuse" class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium hover:bg-white/30 transition-colors">
+        Refuser
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const COOKIE_CONSENT_KEY = 'cookie-consent';
+    const COOKIE_CONSENT_DURATION = 365; // jours
+
+    function setCookie(name: string, value: string, days: number) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${value};expires=${date.toUTCString()};path=/;SameSite=Lax`;
+    }
+
+    function getCookie(name: string): string | null {
+      const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+      return match ? match[2] : null;
+    }
+
+    function hideBanner() {
+      const banner = document.getElementById('cookie-banner');
+      banner?.classList.add('hidden');
+    }
+
+    function showBanner() {
+      const banner = document.getElementById('cookie-banner');
+      banner?.classList.remove('hidden');
+    }
+
+    const consent = getCookie(COOKIE_CONSENT_KEY);
+    const banner = document.getElementById('cookie-banner');
+
+    if (!consent) {
+      showBanner();
+    }
+
+    document.getElementById('cookie-accept')?.addEventListener('click', () => {
+      setCookie(COOKIE_CONSENT_KEY, 'accepted', COOKIE_CONSENT_DURATION);
+      hideBanner();
+    });
+
+    document.getElementById('cookie-refuse')?.addEventListener('click', () => {
+      setCookie(COOKIE_CONSENT_KEY, 'refused', COOKIE_CONSENT_DURATION);
+      hideBanner();
+    });
+  })();
+</script>

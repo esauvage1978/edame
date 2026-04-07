@@ -1,0 +1,26 @@
+---
+import { siteConfig } from '../config';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: `${siteConfig.name} — ${siteConfig.tagline}`,
+  description:
+    'Micro-entreprise : prestations éducatives et préventives pour jeunes 8-16 ans, familles, écoles et services médico-sociaux. Lutte contre la rupture scolaire, le harcèlement, la phobie scolaire et sociale.',
+  url: siteConfig.siteUrl,
+  email: siteConfig.contact.email,
+  telephone: siteConfig.contact.phone.replace(/\s/g, ''),
+  serviceType: 'Accompagnement éducatif et préventif',
+  areaServed: { '@type': 'Place', name: 'France' },
+  potentialAction: {
+    '@type': 'ContactAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `mailto:${siteConfig.contact.email}`,
+      actionPlatform: 'http://schema.org/ContactAction',
+    },
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

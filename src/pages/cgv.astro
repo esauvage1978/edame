@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<BaseLayout
+  title={`CGV | ${siteConfig.name}`}
+  description="Conditions générales de vente des prestations d'accompagnement éducatif."
+  noIndex
+>
+  <Header />
+  <main class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-eerie mb-8">Conditions Générales de Vente (CGV)</h1>
+      <p class="text-sm text-eerie/70 mb-8">Prestations d'accompagnement éducatif spécialisé</p>
+      
+      <div class="space-y-8 text-eerie/90">
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 1 – Objet</h2>
+          <p>
+            Les présentes Conditions Générales de Vente (CGV) régissent les prestations d'accompagnement 
+            éducatif spécialisé proposées par {siteConfig.name}, {siteConfig.title}, aux clients (familles, 
+            particuliers ou structures). Toute commande implique l'acceptation des présentes CGV.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 2 – Prestataire</h2>
+          <p>
+            {siteConfig.name} – {siteConfig.title}<br />
+            {siteConfig.legal.status} – SIRET : {siteConfig.legal.siret}<br />
+            {siteConfig.legal.adresse}, {siteConfig.legal.codePostal} {siteConfig.legal.ville}<br />
+            Contact : {siteConfig.contact.email} – {siteConfig.contact.phone}
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 3 – Prestations</h2>
+          <p>
+            Les prestations comprennent notamment : accompagnement éducatif à domicile ou en cabinet, 
+            bilans, projets éducatifs personnalisés, conseils à la parentalité, interventions en milieu scolaire.
+            Le détail des prestations est défini dans le projet d'accompagnement ou le devis signé.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 4 – Devis et tarifs</h2>
+          <p>
+            Un devis détaillé est établi avant toute prestation. Les tarifs sont indiqués en euros TTC. 
+            Le devis est valable 30 jours. Toute modification du projet peut donner lieu à un avenant au devis.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 5 – Modalités de paiement</h2>
+          <p>
+            Le règlement est dû à l'issue de chaque prestation ou selon les modalités définies au devis. 
+            Les moyens de paiement acceptés : virement, chèque, espèces (dans la limite légale). 
+            Tout retard de paiement peut entraîner des pénalités de retard et une indemnité forfaitaire pour frais de recouvrement.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 6 – Annulation et report</h2>
+          <p>
+            Toute annulation ou report doit être notifiée au moins 48h à l'avance. En cas d'annulation 
+            tardive ou d'absence non signalée, la séance pourra être facturée. En cas d'empêchement du 
+            prestataire, le rendez-vous sera reporté à une date convenable.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 7 – Confidentialité</h2>
+          <p>
+            Le prestataire est tenu au secret professionnel. Les informations relatives à l'accompagnement 
+            ne peuvent être divulguées qu'avec l'accord du client ou dans les cas prévus par la loi.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 8 – Responsabilité</h2>
+          <p>
+            Le prestataire s'engage à exercer ses missions avec diligence et conformément aux règles 
+            déontologiques de la profession. La responsabilité ne pourra être engagée qu'en cas de 
+            faute lourde ou de manquement grave aux obligations professionnelles.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 9 – Litiges</h2>
+          <p>
+            En cas de litige, les parties s'efforceront de trouver une solution amiable. À défaut, 
+            les tribunaux français seront seuls compétents, et le tribunal du domicile du défendeur 
+            sera exclusivement désigné.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 10 – Modifications</h2>
+          <p>
+            Les présentes CGV peuvent être modifiées. La version en vigueur est celle publiée sur le site 
+            à la date de la commande. Les CGV applicables sont celles acceptées au moment de la signature du devis.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

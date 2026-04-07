@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<BaseLayout
+  title={`CGU | ${siteConfig.name}`}
+  description="Conditions générales d'utilisation du site internet."
+  noIndex
+>
+  <Header />
+  <main class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-eerie mb-8">Conditions Générales d'Utilisation (CGU)</h1>
+      <p class="text-sm text-eerie/70 mb-8">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+      
+      <div class="space-y-8 text-eerie/90">
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 1 – Objet</h2>
+          <p>
+            Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation 
+            du site {siteConfig.siteUrl}, édité par {siteConfig.name}. L'accès au site implique l'acceptation 
+            sans réserve des présentes CGU.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 2 – Éditeur</h2>
+          <p>
+            {siteConfig.name} – {siteConfig.title}<br />
+            {siteConfig.legal.adresse}, {siteConfig.legal.codePostal} {siteConfig.legal.ville}<br />
+            Contact : <a href={`mailto:${siteConfig.contact.email}`} class="text-sage hover:underline">{siteConfig.contact.email}</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 3 – Accès au site</h2>
+          <p>
+            Le site est accessible gratuitement à tout utilisateur disposant d'un accès à Internet. 
+            L'éditeur s'efforce d'assurer la disponibilité du site 24h/24 et 7j/7, sans pouvoir être 
+            tenu responsable des interruptions ou dysfonctionnements.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 4 – Utilisation du site</h2>
+          <p>
+            L'utilisateur s'engage à utiliser le site de manière conforme aux lois en vigueur et aux 
+            présentes CGU. Sont notamment interdits : l'utilisation à des fins illicites, la diffusion 
+            de contenus préjudiciables, les tentatives de piratage ou l'altération du fonctionnement du site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 5 – Contenu et propriété intellectuelle</h2>
+          <p>
+            L'ensemble des éléments du site (textes, images, logo, structure, logiciels) est protégé 
+            par le droit d'auteur et le droit des marques. Toute reproduction, représentation ou 
+            exploitation non autorisée est constitutive de contrefaçon et peut donner lieu à des poursuites.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 6 – Formulaire de contact</h2>
+          <p>
+            Les données collectées via le formulaire de contact sont traitées conformément à notre 
+            <a href="/politique-confidentialite/" class="text-sage hover:underline">Politique de confidentialité</a>. 
+            L'utilisateur garantit l'exactitude des informations fournies et accepte d'être contacté 
+            dans le cadre de sa demande.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 7 – Liens hypertextes</h2>
+          <p>
+            Le site peut contenir des liens vers des sites tiers. L'éditeur n'exerce aucun contrôle 
+            sur ces sites et décline toute responsabilité quant à leur contenu. La création de liens 
+            vers ce site est soumise à l'accord préalable de l'éditeur.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 8 – Limitation de responsabilité</h2>
+          <p>
+            Les informations du site sont fournies à titre indicatif. L'éditeur ne garantit pas leur 
+            exhaustivité ou exactitude. L'utilisateur utilise le site sous sa seule responsabilité. 
+            L'éditeur ne pourra être tenu responsable des dommages directs ou indirects résultant de 
+            l'utilisation du site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 9 – Modification des CGU</h2>
+          <p>
+            L'éditeur se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs 
+            seront informés des changements éventuels. La poursuite de l'utilisation du site après 
+            modification vaut acceptation des nouvelles CGU.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">Article 10 – Droit applicable</h2>
+          <p>
+            Les présentes CGU sont régies par le droit français. En cas de litige, les tribunaux 
+            français seront seuls compétents.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,43 +1,37 @@
-# Astro Starter Kit: Minimal
+# Site vitrine EDAME
 
-```sh
-npm create astro@latest -- --template minimal
+Site statique pour **EDAME** — *Educ à la Maison et à l'Ecole* ([edame.fr](https://edame.fr/)).
+
+## Contenu
+
+- **Accueil** — Présentation, objectifs, axes d'intervention
+- **Qui suis-je ?** — Portrait (`public/image/me.jpg`) avec effet de fondu sur les bords
+- **Mes services** — Publics, objectifs, modalités, devis
+- **Contact** — 06 79 92 74 53, contact@edame.fr
+- Pages légales (mentions, confidentialité, cookies, CGV, CGU)
+
+## Identité visuelle
+
+- Couleurs : `#2cafc4` (cyan), `#30d431` (vert)
+- Logo : `public/image/cropped-logo-web-transparent.png`
+- Favicons générés à partir du logo : `favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png`, `apple-touch-icon.png`, `android-chrome-*.png`, `favicon.svg`, `site.webmanifest`
+
+## Configuration
+
+Éditer `src/config.ts` (SIRET, adresse, hébergeur, URL LinkedIn si besoin).
+
+## Commandes
+
+| Commande | Action |
+|----------|--------|
+| `npm run dev` | Développement |
+| `npm run build` | Build → `dist/` |
+| `npm run preview` | Prévisualisation |
+
+## Régénérer les favicons PNG
+
+```bash
+node -e "const s=require('sharp');const src='public/image/cropped-logo-web-transparent.png';const o=[['public/favicon-16x16.png',16],['public/favicon-32x32.png',32],['public/apple-touch-icon.png',180],['public/android-chrome-192x192.png',192],['public/android-chrome-512x512.png',512]];(async()=>{for(const[p,z]of o)await s(src).resize(z,z,{fit:'contain',background:{r:255,g:255,b:255,a:0}}).png().toFile(p);console.log('ok')})();"
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+(Nécessite le module `sharp` installé globalement ou en local.)

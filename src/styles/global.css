@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-cream: #f0fafc;
+  --color-eerie: #1a2e33;
+  /* Marque EDAME */
+  --color-edame: #2cafc4;
+  --color-edame-dark: #1f8fa5;
+  --color-edame-light: #5bc4d6;
+  --color-edame-green: #30d431;
+  --color-edame-green-dark: #26b028;
+  /* Alias rétrocompatibilité utilitaires existants */
+  --color-sage: #2cafc4;
+  --color-sage-dark: #1a6b7a;
+  --color-sage-light: #5bc4d6;
+  --color-terracotta: #2cafc4;
+  --color-warm-beige: #e8f7f9;
+  --color-sand: #e2f4f8;
+}
+
+/* Portrait « détouré » visuel : fondu sur les bords (me.jpg) */
+.portrait-edame {
+  -webkit-mask-image: radial-gradient(ellipse 90% 94% at 50% 38%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 94% at 50% 38%, #000 55%, transparent 100%);
+}

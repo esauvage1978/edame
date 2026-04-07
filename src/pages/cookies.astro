@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<BaseLayout
+  title={`Gestion des cookies | ${siteConfig.name}`}
+  description="Politique et gestion des cookies sur le site."
+  noIndex
+>
+  <Header />
+  <main class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-eerie mb-8">Gestion des cookies</h1>
+      <p class="text-sm text-eerie/70 mb-8">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+      
+      <div class="space-y-8 text-eerie/90">
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">1. Qu'est-ce qu'un cookie ?</h2>
+          <p>
+            Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, smartphone) 
+            lors de la visite d'un site. Il permet de mémoriser des informations sur votre navigation.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">2. Cookies utilisés sur ce site</h2>
+          
+          <h3 class="text-lg font-medium text-eerie mt-6 mb-2">Cookies strictement nécessaires</h3>
+          <p>
+            Ces cookies sont indispensables au fonctionnement du site. Ils permettent notamment de mémoriser 
+            votre choix concernant les cookies. Ils ne nécessitent pas votre consentement.
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><strong>cookie-consent</strong> : stocke votre préférence d'acceptation des cookies (durée : 13 mois)</li>
+          </ul>
+
+          <h3 class="text-lg font-medium text-eerie mt-6 mb-2">Cookies de fonctionnement</h3>
+          <p>
+            Ce site utilise Google Fonts pour l'affichage des polices. Google peut déposer des cookies 
+            pour le chargement des ressources. Ces cookies sont soumis à la politique de confidentialité de Google.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">3. Gérer vos préférences</h2>
+          <p>
+            Vous pouvez à tout moment modifier vos préférences en matière de cookies :
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>En cliquant sur le lien « Gérer les cookies » dans le pied de page du site</li>
+            <li>En supprimant les cookies depuis les paramètres de votre navigateur</li>
+          </ul>
+          <p class="mt-4">
+            Le refus de certains cookies peut affecter l'expérience de navigation sur le site.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">4. Paramètres du navigateur</h2>
+          <p>
+            Vous pouvez configurer votre navigateur pour refuser ou accepter les cookies :
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="text-sage hover:underline">Chrome</a></li>
+            <li><a href="https://support.mozilla.org/fr/kb/activer-desactiver-cookies" target="_blank" rel="noopener noreferrer" class="text-sage hover:underline">Firefox</a></li>
+            <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" class="text-sage hover:underline">Safari</a></li>
+            <li><a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer" class="text-sage hover:underline">Edge</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">5. Contact</h2>
+          <p>
+            Pour toute question relative aux cookies : <a href={`mailto:${siteConfig.contact.email}`} class="text-sage hover:underline">{siteConfig.contact.email}</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

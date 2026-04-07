@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<BaseLayout
+  title={`Politique de confidentialité | ${siteConfig.name}`}
+  description="Politique de confidentialité et protection des données personnelles."
+  noIndex
+>
+  <Header />
+  <main class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-eerie mb-8">Politique de confidentialité</h1>
+      <p class="text-sm text-eerie/70 mb-8">Dernière mise à jour : {new Date().toLocaleDateString('fr-FR')}</p>
+      
+      <div class="space-y-8 text-eerie/90">
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">1. Responsable du traitement</h2>
+          <p>
+            Les données personnelles collectées sur ce site sont traitées par :<br />
+            <strong>{siteConfig.name}</strong> – {siteConfig.title}<br />
+            {siteConfig.legal.adresse}, {siteConfig.legal.codePostal} {siteConfig.legal.ville}<br />
+            Email : {siteConfig.contact.email}
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">2. Données collectées</h2>
+          <p>
+            Dans le cadre de l'utilisation de ce site et du formulaire de contact, les données suivantes peuvent être collectées :
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Numéro de téléphone</li>
+            <li>Contenu des messages</li>
+            <li>Données de navigation (voir section Cookies)</li>
+          </ul>
+          <p class="mt-4">
+            L’envoi du formulaire de contact n’est possible qu’après acceptation explicite de la présente politique de confidentialité (case à cocher). Cette case constitue le <strong>consentement</strong> au traitement des données pour répondre à votre demande, conformément au RGPD.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">3. Finalités du traitement</h2>
+          <p>
+            Vos données sont utilisées pour :
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li>Répondre à vos demandes de contact</li>
+            <li>Établir des devis et convenir de rendez-vous</li>
+            <li>Améliorer le fonctionnement du site</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">4. Base légale</h2>
+          <p>
+            Le traitement de vos données repose sur : votre consentement (formulaire de contact), 
+            l'exécution de mesures précontractuelles (devis) et notre intérêt légitime (amélioration du site).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">5. Durée de conservation</h2>
+          <p>
+            Vos données sont conservées pendant la durée nécessaire à la réalisation des finalités indiquées, 
+            et au maximum 3 ans après le dernier contact pour les données de prospection. 
+            Les données liées à une relation client peuvent être conservées plus longtemps pour les obligations légales.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">6. Vos droits (RGPD)</h2>
+          <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :
+          </p>
+          <ul class="list-disc pl-6 mt-2 space-y-1">
+            <li><strong>Droit d'accès</strong> : obtenir une copie de vos données</li>
+            <li><strong>Droit de rectification</strong> : corriger des données inexactes</li>
+            <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+            <li><strong>Droit à la limitation</strong> : limiter le traitement dans certains cas</li>
+            <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+          </ul>
+          <p class="mt-4">
+            Pour exercer ces droits, contactez-nous à <a href={`mailto:${siteConfig.contact.email}`} class="text-sage hover:underline">{siteConfig.contact.email}</a>.
+            Vous pouvez également introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-sage hover:underline">www.cnil.fr</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">7. Sécurité</h2>
+          <p>
+            Des mesures techniques et organisationnelles sont mises en place pour protéger vos données 
+            contre tout accès non autorisé, perte ou destruction.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

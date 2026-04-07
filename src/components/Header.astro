@@ -1,0 +1,78 @@
+---
+import { siteConfig } from '../config';
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Accueil' },
+  { href: '/qui-suis-je/', label: 'Qui suis-je ?' },
+  { href: '/mes-services/', label: 'Mes services' },
+  { href: '/contact/', label: 'Contact' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sand shadow-sm">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+      <a href="/" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
+        <img
+          src="/image/cropped-logo-web-transparent.png"
+          alt="EDAME"
+          class="h-10 lg:h-12 w-auto object-contain"
+          width="160"
+          height="48"
+        />
+      </a>
+
+      <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-sage-dark hover:bg-sand transition-colors" aria-label="Ouvrir le menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <ul class="hidden lg:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                'font-medium transition-colors py-2',
+                currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                  ? 'text-sage-dark font-semibold'
+                  : 'text-eerie hover:text-sage-dark',
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden pb-4">
+      <ul class="flex flex-col gap-2">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                'block py-3 px-4 rounded-lg font-medium transition-colors',
+                currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                  ? 'bg-sand text-sage-dark font-semibold'
+                  : 'text-eerie hover:bg-sand hover:text-sage-dark',
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.getElementById('menu-toggle')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
+</script>

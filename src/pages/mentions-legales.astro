@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<BaseLayout
+  title={`Mentions légales | ${siteConfig.name}`}
+  description="Mentions légales du site - Éditeur, hébergeur et informations réglementaires."
+  noIndex
+>
+  <Header />
+  <main class="py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-eerie mb-8">Mentions légales</h1>
+      
+      <div class="prose prose-sage max-w-none space-y-8 text-eerie/90">
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">1. Éditeur du site</h2>
+          <p>
+            Le site {siteConfig.siteUrl} est édité par :<br />
+            <strong>{siteConfig.name}</strong> — {siteConfig.tagline}<br />
+            {siteConfig.title}<br />
+            {siteConfig.legal.status}<br />
+            SIRET : {siteConfig.legal.siret}<br />
+            Code APE : {siteConfig.legal.ape}<br />
+            {siteConfig.legal.adresse}<br />
+            {siteConfig.legal.codePostal} {siteConfig.legal.ville}
+          </p>
+          {siteConfig.legal.rcs && (
+            <p>RCS : {siteConfig.legal.rcs}</p>
+          )}
+          {siteConfig.legal.capitalSocial && (
+            <p>Capital social : {siteConfig.legal.capitalSocial}</p>
+          )}
+          {siteConfig.legal.tvaIntracommunautaire && (
+            <p>N° TVA intracommunautaire : {siteConfig.legal.tvaIntracommunautaire}</p>
+          )}
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">2. Contact</h2>
+          <p>
+            Email : <a href={`mailto:${siteConfig.contact.email}`} class="text-sage hover:underline">{siteConfig.contact.email}</a><br />
+            Téléphone : {siteConfig.contact.phone}
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">3. Hébergement</h2>
+          <p>
+            Ce site est hébergé par :<br />
+            <strong>{siteConfig.legal.hebergeur.nom}</strong><br />
+            {siteConfig.legal.hebergeur.adresse}
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">4. Conception du site</h2>
+          <p>
+            Ce site a été conçu et réalisé par <strong>Emmanuel SAUVAGE</strong>.<br />
+            Contact : <a href="mailto:contact@emmanuelsauvage.fr" class="text-sage hover:underline">contact@emmanuelsauvage.fr</a><br />
+            Site internet : <a href="https://emmanuelsauvage.fr" target="_blank" rel="noopener noreferrer" class="text-sage hover:underline">emmanuelsauvage.fr</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">5. Propriété intellectuelle</h2>
+          <p>
+            L'ensemble du contenu de ce site (textes, images, logo, structure) est protégé par le droit d'auteur 
+            et le droit des marques. Toute reproduction, même partielle, sans autorisation écrite préalable est interdite.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">6. Limitation de responsabilité</h2>
+          <p>
+            Les informations contenues sur ce site sont fournies à titre indicatif. L'éditeur s'efforce de les maintenir 
+            à jour mais ne garantit pas leur exhaustivité ou exactitude. L'utilisateur utilise le site sous sa seule responsabilité.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-semibold text-eerie mb-4">7. Liens hypertextes</h2>
+          <p>
+            Les liens vers des sites externes ne engagent pas la responsabilité de l'éditeur quant à leur contenu. 
+            La création de liens vers ce site est autorisée sous réserve de l'accord préalable de l'éditeur.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

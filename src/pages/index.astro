@@ -1,17 +1,112 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title={`${siteConfig.name} — ${siteConfig.tagline}`}
+  description="EDAME : Educ à la Maison et à l'Ecole. Prestations éducatives et préventives pour les 8-16 ans, familles, écoles. Prévention rupture scolaire, harcèlement, phobie scolaire et sociale."
+  preloadImage="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=75"
+>
+  <Header />
+  <main>
+    <section class="relative overflow-hidden min-h-[70vh] flex items-center">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=75"
+          srcset="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=75 640w, https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1024&q=75 1024w, https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1920&q=80 1920w"
+          sizes="100vw"
+          alt=""
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-eerie/55"></div>
+      </div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="text-edame-green font-semibold text-lg tracking-wide uppercase">Educ à la Maison et à l'Ecole</p>
+          <h1 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            {siteConfig.name} : accompagner autrement
+          </h1>
+          <p class="mt-6 text-xl text-white max-w-xl">
+            Une micro-entreprise qui propose des <strong class="text-edame-light">prestations éducatives et préventives</strong> aux jeunes de 8 à 16 ans, à leurs parents, aux établissements scolaires et aux services médico-sociaux.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="/mes-services/" class="inline-flex items-center px-6 py-3 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors shadow-lg">
+              Mes services
+            </a>
+            <a href="/contact/" class="inline-flex items-center px-6 py-3 bg-white text-sage-dark font-semibold rounded-full hover:bg-sand transition-colors shadow-lg">
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">EDAME, c'est quoi ?</h2>
+        <div class="mt-10 max-w-3xl mx-auto space-y-6 text-lg text-eerie leading-relaxed">
+          <p>
+            Éviter la <strong>rupture scolaire</strong> tout en proposant un accompagnement personnalisé et réfléchi est au cœur de notre démarche.
+          </p>
+          <p>
+            Lutter contre le <strong>harcèlement scolaire</strong>, la <strong>phobie scolaire</strong> et la <strong>phobie sociale</strong> fait partie des objectifs d'EDAME.
+          </p>
+          <p>
+            Nous intervenons auprès des jeunes, des familles et des partenaires institutionnels pour construire des solutions concrètes et durables.
+          </p>
+        </div>
+        <div class="text-center mt-12">
+          <a href="/qui-suis-je/" class="inline-flex items-center text-sage-dark font-semibold hover:underline">
+            En savoir plus sur qui je suis
+            <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24 bg-sand">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-eerie text-center">Nos axes d'intervention</h2>
+        <div class="mt-12 grid md:grid-cols-3 gap-8">
+          <article class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-edame-green">
+            <h3 class="text-xl font-semibold text-eerie">Jeunes 8-16 ans</h3>
+            <p class="mt-2 text-eerie">Accompagnement adapté au développement et aux difficultés rencontrées à l'école ou dans les relations sociales.</p>
+          </article>
+          <article class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-sage">
+            <h3 class="text-xl font-semibold text-eerie">Familles & écoles</h3>
+            <p class="mt-2 text-eerie">Médiation, prévention et outils pour les parents et les équipes éducatives.</p>
+          </article>
+          <article class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-edame-green">
+            <h3 class="text-xl font-semibold text-eerie">Médico-social</h3>
+            <p class="mt-2 text-eerie">Collaboration avec les professionnels pour une prise en charge cohérente.</p>
+          </article>
+        </div>
+        <div class="text-center mt-10">
+          <a href="/mes-services/" class="inline-flex items-center px-6 py-3 bg-sage text-white font-semibold rounded-full hover:bg-sage-light transition-colors">
+            Découvrir les services
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24 bg-sage">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-white">Un projet, une question ?</h2>
+        <p class="mt-4 text-white text-lg">
+          Contactez-nous au <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} class="underline font-semibold">{siteConfig.contact.phone}</a>
+          ou par email.
+        </p>
+        <a href="/contact/" class="inline-flex items-center mt-8 px-8 py-4 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors shadow-lg">
+          Formulaire de contact
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

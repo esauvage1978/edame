@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config';
+---
+
+<BaseLayout
+  title={`Contact | ${siteConfig.name}`}
+  description={`Contactez ${siteConfig.name} : ${siteConfig.contact.phone}, ${siteConfig.contact.email}. Educ à la Maison et à l'Ecole.`}
+  preloadImage="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=640&q=75"
+>
+  <Header />
+  <main>
+    <section class="relative py-20 lg:py-28 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=75"
+          srcset="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=640&q=75 640w, https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1024&q=75 1024w, https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&q=80 1920w"
+          sizes="100vw"
+          alt=""
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-eerie/50"></div>
+      </div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl sm:text-5xl font-bold text-white">Contact</h1>
+        <p class="mt-4 text-xl text-white max-w-2xl">
+          Échangeons sur votre besoin : jeunes, familles, école ou partenaires
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-sand">
+            <h2 class="text-2xl font-bold text-eerie mb-6">Envoyer un message</h2>
+            <form class="space-y-6" action="#" method="POST" aria-label="Formulaire de contact">
+              <div>
+                <label for="name" class="block text-sm font-medium text-eerie mb-2">Nom complet</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-sand bg-cream focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all"
+                  placeholder="Votre nom"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-eerie mb-2">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-sand bg-cream focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all"
+                  placeholder="votre@email.fr"
+                />
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-eerie mb-2">Téléphone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="w-full px-4 py-3 rounded-lg border border-sand bg-cream focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all"
+                  placeholder="06 00 00 00 00"
+                />
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-eerie mb-2">Votre message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  class="w-full px-4 py-3 rounded-lg border border-sand bg-cream focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all resize-none"
+                  placeholder="Décrivez votre demande…"
+                ></textarea>
+              </div>
+
+              <div class="flex items-start gap-3 rounded-lg border border-sand bg-cream/80 p-4">
+                <input
+                  type="checkbox"
+                  id="privacy-consent"
+                  name="privacy_consent"
+                  value="1"
+                  required
+                  aria-required="true"
+                  class="mt-0.5 h-5 w-5 shrink-0 rounded border-sand text-sage focus:ring-2 focus:ring-sage/30"
+                />
+                <label for="privacy-consent" class="text-sm text-eerie leading-relaxed cursor-pointer">
+                  J’ai lu et j’accepte la{' '}
+                  <a
+                    href="/politique-confidentialite/"
+                    class="text-sage font-semibold underline hover:no-underline focus:outline-none focus:ring-2 focus:ring-sage/40 rounded"
+                  >
+                    politique de confidentialité
+                  </a>
+                  {' '}concernant la collecte et le traitement de mes données personnelles dans le cadre de cette demande de contact.{' '}
+                  <span class="text-sage font-medium">(obligatoire)</span>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors shadow-lg"
+              >
+                Envoyer
+              </button>
+              <p class="text-sm text-eerie text-center">Réponse sous 48h ouvrées en général.</p>
+            </form>
+          </div>
+
+          <div>
+            <div class="space-y-6">
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg border border-sand">
+                <span class="text-2xl" aria-hidden="true">📞</span>
+                <div>
+                  <h3 class="font-semibold text-eerie">Téléphone</h3>
+                  <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} class="text-sage font-medium hover:underline text-lg">
+                    {siteConfig.contact.phone}
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg border border-sand">
+                <span class="text-2xl" aria-hidden="true">✉️</span>
+                <div>
+                  <h3 class="font-semibold text-eerie">Email</h3>
+                  <a href={`mailto:${siteConfig.contact.email}`} class="text-sage font-medium hover:underline break-all">
+                    {siteConfig.contact.email}
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg border border-sand">
+                <span class="text-2xl" aria-hidden="true">📍</span>
+                <div>
+                  <h3 class="font-semibold text-eerie">Interventions</h3>
+                  <p class="text-eerie">{siteConfig.contact.zone}</p>
+                </div>
+              </div>
+            </div>
+            <p class="mt-6 text-eerie leading-relaxed">
+              Le premier contact est l'occasion de comprendre votre contexte et d'orienter vers la prestation la plus adaptée.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
