@@ -1,4 +1,9 @@
+# EDAME — https://edame.fr
+# Adapter l’URL du sitemap si astro.config site est modifié.
+
 User-agent: *
 Allow: /
+
+# Pages légales en noindex : restent crawlables si besoin, mais hors sitemap.
 
 Sitemap: https://edame.fr/sitemap-index.xml
