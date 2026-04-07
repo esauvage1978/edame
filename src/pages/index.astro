@@ -3,11 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig } from '../config';
+const phoneTel = siteConfig.contact.phone.replace(/\s/g, '');
 ---
 
 <BaseLayout
   title={`${siteConfig.name} — ${siteConfig.tagline}`}
-  description="EDAME : Educ à la Maison et à l'Ecole. Prestations éducatives et préventives pour les 8-16 ans, familles, écoles. Prévention rupture scolaire, harcèlement, phobie scolaire et sociale."
+  description="EDAME, l'Educ A la Maison et A l'Ecole : accompagnement des familles, maintien de la scolarité, prévention, phobie scolaire. Leduc Delphine, éducatrice spécialisée. Lille, Dunkerque, Armentières."
   preloadImage="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=640&q=75"
 >
   <Header />
@@ -28,19 +29,19 @@ import { siteConfig } from '../config';
       </div>
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div class="max-w-2xl">
-          <p class="text-edame-green font-semibold text-lg tracking-wide uppercase">Educ à la Maison et à l'Ecole</p>
+          <p class="text-edame-green font-semibold text-lg tracking-wide uppercase">Livret d'accueil — Educ à la Maison et à l'Ecole</p>
           <h1 class="mt-2 text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            {siteConfig.name} : accompagner autrement
+            {siteConfig.name} : ton éduc à la maison et à l'école
           </h1>
           <p class="mt-6 text-xl text-white max-w-xl">
-            Une micro-entreprise qui propose des <strong class="text-edame-light">prestations éducatives et préventives</strong> aux jeunes de 8 à 16 ans, à leurs parents, aux établissements scolaires et aux services médico-sociaux.
+            Accompagnement des parents d'enfants en <strong class="text-edame-light">difficultés scolaires</strong> : prévention, maintien de la scolarité, lien école–soins et travail avec les professionnels de santé.
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
             <a href="/mes-services/" class="inline-flex items-center px-6 py-3 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors shadow-lg">
-              Mes services
+              Modalités & services
             </a>
             <a href="/contact/" class="inline-flex items-center px-6 py-3 bg-white text-sage-dark font-semibold rounded-full hover:bg-sand transition-colors shadow-lg">
-              Contact
+              Contact & formulaire
             </a>
           </div>
         </div>
@@ -52,18 +53,21 @@ import { siteConfig } from '../config';
         <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">EDAME, c'est quoi ?</h2>
         <div class="mt-10 max-w-3xl mx-auto space-y-6 text-lg text-eerie leading-relaxed">
           <p>
-            Éviter la <strong>rupture scolaire</strong> tout en proposant un accompagnement personnalisé et réfléchi est au cœur de notre démarche.
+            <strong>{siteConfig.name}</strong> « {siteConfig.tagline} » a été créé en <strong>{siteConfig.projectSince}</strong> par <strong>{siteConfig.founderName}</strong>, éducatrice spécialisée diplômée en <strong>2014</strong> à la <strong>HEH de Tournai</strong>.
           </p>
           <p>
-            Lutter contre le <strong>harcèlement scolaire</strong>, la <strong>phobie scolaire</strong> et la <strong>phobie sociale</strong> fait partie des objectifs d'EDAME.
+            L'objectif d'EDAME est de permettre un <strong>accompagnement aux parents</strong> qui ont un ou plusieurs enfants présentant des <strong>difficultés scolaires</strong>. Nous visons à <strong>maintenir la scolarité</strong> de chaque enfant, à <strong>soutenir les familles</strong> et à être disponibles pour les <strong>établissements scolaires ordinaires et adaptés</strong>.
           </p>
           <p>
-            Nous intervenons auprès des jeunes, des familles et des partenaires institutionnels pour construire des solutions concrètes et durables.
+            Parce qu'avoir un trouble psychique ne doit pas être la cause de <strong>déscolarisation</strong>, de <strong>marginalisation</strong> ou de <strong>rupture de soins</strong>, EDAME est là dans les moments où le jeune a besoin d'un <strong>maillage entre la vie scolaire et ses moments de soins</strong>.
+          </p>
+          <p class="font-medium text-sage-dark">
+            Prévention, accompagnement et aide à la scolarité, orientations, soutien à la parentalité, guidance parentale : les grands axes d'EDAME.
           </p>
         </div>
         <div class="text-center mt-12">
           <a href="/qui-suis-je/" class="inline-flex items-center text-sage-dark font-semibold hover:underline">
-            En savoir plus sur qui je suis
+            Qui suis-je ?
             <span class="ml-2">→</span>
           </a>
         </div>
@@ -72,35 +76,41 @@ import { siteConfig } from '../config';
 
     <section class="py-16 lg:py-24 bg-sand">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-eerie text-center">Nos axes d'intervention</h2>
-        <div class="mt-12 grid md:grid-cols-3 gap-8">
-          <article class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-edame-green">
-            <h3 class="text-xl font-semibold text-eerie">Jeunes 8-16 ans</h3>
-            <p class="mt-2 text-eerie">Accompagnement adapté au développement et aux difficultés rencontrées à l'école ou dans les relations sociales.</p>
-          </article>
-          <article class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-sage">
-            <h3 class="text-xl font-semibold text-eerie">Familles & écoles</h3>
-            <p class="mt-2 text-eerie">Médiation, prévention et outils pour les parents et les équipes éducatives.</p>
-          </article>
-          <article class="bg-white rounded-2xl p-8 shadow-lg border-t-4 border-edame-green">
-            <h3 class="text-xl font-semibold text-eerie">Médico-social</h3>
-            <p class="mt-2 text-eerie">Collaboration avec les professionnels pour une prise en charge cohérente.</p>
-          </article>
-        </div>
+        <h2 class="text-3xl font-bold text-eerie text-center">EDAME, c'est aussi…</h2>
+        <ul class="mt-10 max-w-3xl mx-auto space-y-4 text-lg text-eerie leading-relaxed list-disc pl-6">
+          <li><strong>Ton éduc à la maison et à l'école.</strong></li>
+          <li>Depuis {siteConfig.projectSince}, déjà une <strong>dizaine de familles</strong> dont le quotidien s'est apaisé et pour qui des pistes ont été données.</li>
+          <li>Un <strong>projet unique à chacun</strong>, construit <strong>avec</strong> la famille — accompagnement court ou long, au <strong>rythme du jeune</strong>, avec des <strong>outils réfléchis et personnalisés</strong>.</li>
+          <li>Le <strong>lien entre les familles et les écoles</strong>.</li>
+          <li>Un travail en <strong>collaboration avec les PCPE</strong>, médecins traitants, psychiatres, psychologues…</li>
+        </ul>
         <div class="text-center mt-10">
           <a href="/mes-services/" class="inline-flex items-center px-6 py-3 bg-sage text-white font-semibold rounded-full hover:bg-sage-light transition-colors">
-            Découvrir les services
+            Modalité d'un accompagnement & tarifs
           </a>
         </div>
       </div>
     </section>
 
+    <section class="py-16 lg:py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-eerie text-center">Secteur d'intervention</h2>
+        <p class="mt-6 text-xl text-eerie text-center max-w-2xl mx-auto">
+          <strong>Lille</strong> — <strong>Dunkerque</strong> — <strong>Armentières</strong>
+        </p>
+      </div>
+    </section>
+
     <section class="py-16 lg:py-24 bg-sage">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold text-white">Un projet, une question ?</h2>
+        <h2 class="text-3xl font-bold text-white">Premier contact</h2>
         <p class="mt-4 text-white text-lg">
-          Contactez-nous au <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} class="underline font-semibold">{siteConfig.contact.phone}</a>
-          ou par email.
+          Les responsables légaux ou le médecin psychiatre peuvent nous joindre via le <strong>formulaire sur edame.fr</strong>, puis un appel gratuit de 15 minutes permet de valider la demande.
+        </p>
+        <p class="mt-2 text-white">
+          <a href={`tel:${phoneTel}`} class="underline font-semibold">{siteConfig.contact.phone}</a>
+          {' · '}
+          <a href={`mailto:${siteConfig.contact.email}`} class="underline font-semibold break-all">{siteConfig.contact.email}</a>
         </p>
         <a href="/contact/" class="inline-flex items-center mt-8 px-8 py-4 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors shadow-lg">
           Formulaire de contact

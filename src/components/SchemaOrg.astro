@@ -6,12 +6,23 @@ const schema = {
   '@type': 'ProfessionalService',
   name: `${siteConfig.name} — ${siteConfig.tagline}`,
   description:
-    'Micro-entreprise : prestations éducatives et préventives pour jeunes 8-16 ans, familles, écoles et services médico-sociaux. Lutte contre la rupture scolaire, le harcèlement, la phobie scolaire et sociale.',
+    "Accompagnement des familles dont les enfants ont des difficultés scolaires : maintien de la scolarité, prévention, phobie scolaire, travail avec l'école et le réseau de soins. Public à partir de 6 ans. Lille, Dunkerque, Armentières.",
   url: siteConfig.siteUrl,
   email: siteConfig.contact.email,
   telephone: siteConfig.contact.phone.replace(/\s/g, ''),
-  serviceType: 'Accompagnement éducatif et préventif',
-  areaServed: { '@type': 'Place', name: 'France' },
+  serviceType: 'Accompagnement éducatif spécialisé à domicile et en milieu scolaire',
+  areaServed: [
+    { '@type': 'City', name: 'Lille' },
+    { '@type': 'City', name: 'Dunkerque' },
+    { '@type': 'City', name: 'Armentières' },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: siteConfig.contact.addressLine,
+    postalCode: siteConfig.contact.codePostal,
+    addressLocality: siteConfig.contact.ville,
+    addressCountry: 'FR',
+  },
   potentialAction: {
     '@type': 'ContactAction',
     target: {

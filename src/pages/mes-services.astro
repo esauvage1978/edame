@@ -7,7 +7,7 @@ import { siteConfig } from '../config';
 
 <BaseLayout
   title={`Mes services | ${siteConfig.name}`}
-  description="Prestations éducatives et préventives EDAME : jeunes 8-16 ans, familles, écoles, médico-social. Prévention rupture scolaire, harcèlement, phobie scolaire et sociale."
+  description="Modalités d'accompagnement EDAME : premier entretien gratuit, séances à domicile ou école, public à partir de 6 ans (TSA, TDAH, phobie scolaire). Lille, Dunkerque, Armentières."
   preloadImage="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=640&q=75"
 >
   <Header />
@@ -29,7 +29,7 @@ import { siteConfig } from '../config';
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl sm:text-5xl font-bold text-white">Mes services</h1>
         <p class="mt-4 text-xl text-white max-w-2xl">
-          Des prestations éducatives et préventives pour agir tôt et ensemble
+          Livret d'accueil : accompagnement personnalisé, école–maison–soins
         </p>
       </div>
     </section>
@@ -37,13 +37,19 @@ import { siteConfig } from '../config';
     <section class="py-16 lg:py-24 bg-cream">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-eerie text-center mb-4">Pour qui ?</h2>
-        <p class="text-xl text-eerie text-center max-w-2xl mx-auto mb-12">
-          Jeunes entre 8 et 16 ans, parents, équipes éducatives et structures médico-sociales.
+        <p class="text-lg text-eerie text-center max-w-3xl mx-auto mb-8">
+          EDAME accompagne l'enfant <strong>à partir de 6 ans</strong>, en lien avec la famille et l'établissement scolaire.
         </p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl p-8 shadow border border-sand">
+          <p class="text-eerie leading-relaxed">
+            <strong>Profils fréquents :</strong> TSA, TDA, TDAH, TOP, phobie scolaire, difficultés scolaires, instabilités psychiques avec situation de crise au domicile.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           <div class="bg-white rounded-xl p-6 text-center shadow border-t-4 border-edame-green">
             <span class="text-3xl" aria-hidden="true">🧒</span>
-            <p class="mt-2 font-semibold text-eerie">Jeunes</p>
+            <p class="mt-2 font-semibold text-eerie">Enfants & jeunes</p>
+            <p class="text-sm text-eerie/80 mt-1">À partir de 6 ans</p>
           </div>
           <div class="bg-white rounded-xl p-6 text-center shadow border-t-4 border-sage">
             <span class="text-3xl" aria-hidden="true">👨‍👩‍👧</span>
@@ -52,10 +58,11 @@ import { siteConfig } from '../config';
           <div class="bg-white rounded-xl p-6 text-center shadow border-t-4 border-edame-green">
             <span class="text-3xl" aria-hidden="true">🏫</span>
             <p class="mt-2 font-semibold text-eerie">Écoles</p>
+            <p class="text-sm text-eerie/80 mt-1">Ordinaires & adaptées</p>
           </div>
           <div class="bg-white rounded-xl p-6 text-center shadow border-t-4 border-sage">
             <span class="text-3xl" aria-hidden="true">🏥</span>
-            <p class="mt-2 font-semibold text-eerie">Médico-social</p>
+            <p class="mt-2 font-semibold text-eerie">Réseau de soins</p>
           </div>
         </div>
       </div>
@@ -66,33 +73,63 @@ import { siteConfig } from '../config';
         <div>
           <h2 class="text-2xl font-bold text-eerie flex items-center gap-3">
             <span class="w-3 h-10 bg-edame-green rounded-full" aria-hidden="true"></span>
-            Objectifs
+            Modalité pour un accompagnement
           </h2>
-          <ul class="mt-6 space-y-3 text-lg text-eerie max-w-3xl">
-            <li class="flex gap-2"><span class="text-sage font-bold">✓</span> Prévenir et réduire la rupture scolaire</li>
-            <li class="flex gap-2"><span class="text-sage font-bold">✓</span> Agir sur le harcèlement scolaire</li>
-            <li class="flex gap-2"><span class="text-sage font-bold">✓</span> Accompagner la phobie scolaire et la phobie sociale</li>
-            <li class="flex gap-2"><span class="text-sage font-bold">✓</span> Proposer un accompagnement personnalisé et réfléchi</li>
-          </ul>
+          <ol class="mt-6 space-y-4 text-lg text-eerie max-w-3xl list-decimal pl-6 leading-relaxed">
+            <li>
+              Les <strong>responsables légaux</strong> ou le <strong>médecin psychiatre</strong> contactent EDAME via le <strong>formulaire de contact</strong> sur <a href="https://edame.fr" class="text-sage font-semibold underline hover:no-underline">edame.fr</a>.
+            </li>
+            <li>
+              Un <strong>entretien téléphonique gratuit (15 minutes)</strong>, ou des <strong>échanges par courriel</strong>, permettent de valider la demande d'accompagnement (secteur, besoin) ou d'orienter. Le <strong>livret d'accueil</strong> est envoyé par mail après cet échange.
+            </li>
+            <li>
+              Un <strong>premier rendez-vous</strong> est proposé, <strong>facturé 36&nbsp;€</strong> : rencontrer la famille, cibler la problématique et déterminer un temps d'observation.
+            </li>
+            <li>
+              Un <strong>temps d'observation</strong> de <strong>1 à 3 séances d'une heure</strong> permet de définir les objectifs, la durée et la fréquence du suivi (<strong>6 mois ou 1 an</strong>, renouvelable <strong>une fois</strong>), ainsi que le <strong>coût du suivi</strong> et les modalités de facturation.
+            </li>
+            <li>
+              Un <strong>contrat de prestation</strong> est rédigé et proposé à la signature des bénéficiaires après lecture.
+            </li>
+          </ol>
         </div>
 
         <div>
           <h2 class="text-2xl font-bold text-eerie flex items-center gap-3">
             <span class="w-3 h-10 bg-sage rounded-full" aria-hidden="true"></span>
-            Modalités
+            Séances organisées et personnalisées
+          </h2>
+          <ul class="mt-6 space-y-3 text-lg text-eerie max-w-3xl leading-relaxed">
+            <li class="flex gap-2"><span class="text-sage font-bold shrink-0">•</span> Le jeune est récupéré à son <strong>établissement scolaire</strong> le plus souvent possible pour <strong>faire le lien avec les équipes pédagogiques</strong>.</li>
+            <li class="flex gap-2"><span class="text-sage font-bold shrink-0">•</span> La séance se déroule au <strong>domicile</strong> ou en <strong>extérieur</strong> si cela sert les objectifs.</li>
+            <li class="flex gap-2"><span class="text-sage font-bold shrink-0">•</span> Durée : <strong>entre 1 h et 3 h maximum</strong>.</li>
+            <li class="flex gap-2"><span class="text-sage font-bold shrink-0">•</span> Format : <strong>individuel</strong> (éducatrice spécialisée – jeune) ou <strong>collectif</strong> (éducatrice spécialisée – jeune – famille).</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold text-eerie flex items-center gap-3">
+            <span class="w-3 h-10 bg-edame-green rounded-full" aria-hidden="true"></span>
+            Rendez-vous pluridisciplinaires &amp; trajets
           </h2>
           <p class="mt-6 text-lg text-eerie max-w-3xl leading-relaxed">
-            Les interventions peuvent se dérouler selon les besoins : entretiens, ateliers, médiation, travail en réseau avec l'école ou les partenaires. Chaque demande fait l'objet d'un premier échange pour définir la meilleure réponse.
+            EDAME propose des prestations à domicile en <strong>libéral</strong> ; l'éducatrice spécialisée ne travaille pas seule : elle se met en relation avec les <strong>médecins, psychologues, enseignants</strong>, etc. Des réunions peuvent avoir lieu à l'école, en cabinet, etc.
+          </p>
+          <p class="mt-4 text-lg text-eerie max-w-3xl leading-relaxed">
+            EDAME s'engage à favoriser la <strong>continuité des soins</strong> et la <strong>scolarité</strong>, en permettant aux responsables légaux de maintenir leur activité professionnelle — notamment en assurant les trajets <strong>école – maison – établissements de soin</strong>, avec ou sans présence des parents.
           </p>
         </div>
 
         <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-xl border border-sand">
-          <h2 class="text-2xl font-bold text-eerie">Tarifs & devis</h2>
+          <h2 class="text-2xl font-bold text-eerie">Secteur géographique &amp; tarifs</h2>
           <p class="mt-4 text-eerie leading-relaxed">
-            Les prestations sont établies sur devis, en fonction du type d'intervention, de la durée et du public. Contactez-nous pour une proposition adaptée à votre situation.
+            <strong>Zone d'intervention :</strong> Lille, Dunkerque, Armentières (et demandes voisines selon faisabilité).
+          </p>
+          <p class="mt-3 text-eerie leading-relaxed">
+            <strong>Tarifs du suivi :</strong> communiqués après le temps d'observation et formalisés dans le contrat de prestation. Pour toute précision, <a href="/contact/" class="text-sage font-semibold underline hover:no-underline">contactez EDAME</a>.
           </p>
           <a href="/contact/" class="inline-flex items-center mt-6 px-6 py-3 bg-sage text-white font-semibold rounded-full hover:bg-sage-light transition-colors">
-            Demander un devis
+            Formulaire de contact
           </a>
         </div>
       </div>
@@ -100,7 +137,7 @@ import { siteConfig } from '../config';
 
     <section class="py-16 bg-sage">
       <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-2xl font-bold text-white">Une question sur nos services ?</h2>
+        <h2 class="text-2xl font-bold text-white">Une question sur le déroulement ?</h2>
         <a href="/contact/" class="inline-flex items-center mt-6 px-6 py-3 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors">
           Nous contacter
         </a>

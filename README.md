@@ -7,7 +7,7 @@ Site statique pour **EDAME** — *Educ à la Maison et à l'Ecole* ([edame.fr](h
 - **Accueil** — Présentation, objectifs, axes d'intervention
 - **Qui suis-je ?** — Portrait (`public/image/me.jpg`) avec effet de fondu sur les bords
 - **Mes services** — Publics, objectifs, modalités, devis
-- **Contact** — 06 79 92 74 53, contact@edame.fr
+- **Contact** — 06 79 92 74 53, contact.edame@gmail.com, 266 rue nationale Lille
 - Pages légales (mentions, confidentialité, cookies, CGV, CGU)
 
 ## Identité visuelle

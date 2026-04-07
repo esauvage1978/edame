@@ -1,7 +1,7 @@
 {
   "name": "EDAME - Educ à la Maison et à l'Ecole",
   "short_name": "EDAME",
-  "description": "Accompagnement éducatif et préventif pour les jeunes 8-16 ans, familles et écoles.",
+  "description": "EDAME : Educ à la Maison et à l'Ecole. Accompagnement familles, maintien scolaire, Lille, Dunkerque, Armentières.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

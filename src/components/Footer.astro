@@ -43,11 +43,16 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="font-semibold mb-3">Contact</h3>
         <p class="text-white text-sm">
+          {siteConfig.contact.addressLine}<br />
+          {siteConfig.contact.codePostal} {siteConfig.contact.ville}
+        </p>
+        <p class="text-white text-sm mt-3">
           <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} class="hover:underline block">{siteConfig.contact.phone}</a>
         </p>
         <p class="text-white text-sm mt-2">
-          <a href={`mailto:${siteConfig.contact.email}`} class="hover:underline">{siteConfig.contact.email}</a>
+          <a href={`mailto:${siteConfig.contact.email}`} class="hover:underline break-all">{siteConfig.contact.email}</a>
         </p>
+        <p class="text-white/90 text-sm mt-2">{siteConfig.contact.zone}</p>
       </div>
     </div>
 

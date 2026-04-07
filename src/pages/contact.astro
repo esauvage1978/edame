@@ -29,7 +29,7 @@ import { siteConfig } from '../config';
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl sm:text-5xl font-bold text-white">Contact</h1>
         <p class="mt-4 text-xl text-white max-w-2xl">
-          Échangeons sur votre besoin : jeunes, familles, école ou partenaires
+          Les responsables légaux ou le médecin psychiatre peuvent nous écrire ; nous rappelons pour un entretien gratuit de 15 minutes.
         </p>
       </div>
     </section>
@@ -140,13 +140,32 @@ import { siteConfig } from '../config';
               <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg border border-sand">
                 <span class="text-2xl" aria-hidden="true">📍</span>
                 <div>
-                  <h3 class="font-semibold text-eerie">Interventions</h3>
+                  <h3 class="font-semibold text-eerie">Adresse</h3>
+                  <p class="text-eerie">
+                    {siteConfig.contact.addressLine}<br />
+                    {siteConfig.contact.codePostal} {siteConfig.contact.ville}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg border border-sand">
+                <span class="text-2xl" aria-hidden="true">🗺️</span>
+                <div>
+                  <h3 class="font-semibold text-eerie">Secteur d'intervention</h3>
                   <p class="text-eerie">{siteConfig.contact.zone}</p>
                 </div>
               </div>
             </div>
             <p class="mt-6 text-eerie leading-relaxed">
-              Le premier contact est l'occasion de comprendre votre contexte et d'orienter vers la prestation la plus adaptée.
+              Après lecture du message, un <strong>entretien téléphonique gratuit (15 min)</strong> ou des <strong>échanges par mail</strong> permettent de valider la demande ou d'orienter. Le <strong>livret d'accueil</strong> est envoyé par courriel ensuite.
+            </p>
+            <p class="mt-3 text-sm text-eerie/80">
+              Suivez EDAME sur{' '}
+              {siteConfig.linkedinUrl ? (
+                <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" class="text-sage font-medium underline hover:no-underline">LinkedIn</a>
+              ) : (
+                <span>LinkedIn</span>
+              )}
+              {' '}— site <a href={siteConfig.siteUrl} class="text-sage font-medium underline hover:no-underline">edame.fr</a>.
             </p>
           </div>
         </div>

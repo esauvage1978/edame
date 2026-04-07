@@ -7,7 +7,7 @@ import { siteConfig } from '../config';
 
 <BaseLayout
   title={`Qui suis-je ? | ${siteConfig.name}`}
-  description="Découvrez la fondatrice d'EDAME, Educ à la Maison et à l'Ecole, et son engagement pour les jeunes, les familles et les établissements."
+  description={`${siteConfig.founderName}, éducatrice spécialisée diplômée HEH Tournai 2014, fondatrice d'EDAME (${siteConfig.projectSince}). Educ à la Maison et à l'Ecole.`}
   preloadImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=640&q=75"
 >
   <Header />
@@ -15,7 +15,7 @@ import { siteConfig } from '../config';
     <section class="relative py-20 lg:py-28 overflow-hidden">
       <div class="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=75"
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=807&q=75"
           srcset="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=640&q=75 640w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1024&q=75 1024w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80 1920w"
           sizes="100vw"
           alt=""
@@ -29,7 +29,7 @@ import { siteConfig } from '../config';
       <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 class="text-4xl sm:text-5xl font-bold text-white">Qui suis-je ?</h1>
         <p class="mt-4 text-xl text-white max-w-2xl">
-          La personne derrière {siteConfig.name}, {siteConfig.tagline}
+          {siteConfig.founderName} — {siteConfig.tagline}
         </p>
       </div>
     </section>
@@ -38,12 +38,15 @@ import { siteConfig } from '../config';
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="order-2 lg:order-1">
-            <h2 class="text-3xl lg:text-4xl font-bold text-eerie">Mon parcours</h2>
+            <h2 class="text-3xl lg:text-4xl font-bold text-eerie">Mon parcours & EDAME</h2>
             <p class="mt-6 text-lg text-eerie leading-relaxed">
-              Je porte le projet <strong>{siteConfig.name}</strong> avec la conviction qu'un accompagnement de qualité peut faire la différence pour les jeunes, leurs familles et les professionnels qui les entourent.
+              Je suis <strong>{siteConfig.founderName}</strong>, éducatrice spécialisée diplômée en <strong>2014</strong> à la <strong>Haute École en Hainaut (HEH) de Tournai</strong>. J'ai créé <strong>{siteConfig.name}</strong> « {siteConfig.tagline} » en <strong>{siteConfig.projectSince}</strong>.
             </p>
             <p class="mt-4 text-lg text-eerie leading-relaxed">
-              Formée et engagée dans le champ de l'éducation et de la prévention, je mets mon expérience au service d'interventions sur mesure : prévention de la rupture scolaire, soutien face au harcèlement, à la phobie scolaire ou sociale, et collaboration avec les écoles et le médico-social.
+              Mon objectif : permettre un accompagnement aux parents d'enfants en difficultés scolaires, <strong>maintenir la scolarité</strong>, soutenir les familles et être présente pour les écoles ordinaires et adaptées — pour que la santé psychique ne soit pas une cause de déscolarisation ou de rupture de soins, mais un maillage entre l'école et les soins.
+            </p>
+            <p class="mt-4 text-lg text-eerie leading-relaxed">
+              <strong>Prévention</strong>, accompagnement et aide à la scolarité, <strong>orientations</strong>, <strong>soutien à la parentalité</strong> et <strong>guidance parentale</strong> structurent mon intervention au quotidien.
             </p>
           </div>
           <div class="order-1 lg:order-2 flex justify-center lg:justify-end">
@@ -56,7 +59,7 @@ import { siteConfig } from '../config';
                 <div class="rounded-[1.85rem] overflow-hidden bg-cream">
                   <img
                     src="/image/me.jpg"
-                    alt="Portrait de la fondatrice d'EDAME"
+                    alt={`Portrait de ${siteConfig.founderName}, fondatrice d'EDAME`}
                     class="portrait-edame w-full max-w-[320px] lg:max-w-[400px] mx-auto object-cover object-top max-h-[520px]"
                     width="704"
                     height="1024"
@@ -73,41 +76,41 @@ import { siteConfig } from '../config';
 
     <section class="py-16 lg:py-24 bg-sand">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">Mes valeurs</h2>
-        <div class="mt-12 grid md:grid-cols-3 gap-8">
-          <div class="bg-white rounded-2xl p-8 text-center shadow-md border border-sand">
-            <span class="text-4xl" aria-hidden="true">💚</span>
-            <h3 class="mt-4 text-xl font-semibold text-eerie">Bienveillance</h3>
-            <p class="mt-2 text-eerie">Accueil sans jugement, respect et écoute.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 text-center shadow-md border border-sand">
-            <span class="text-4xl" aria-hidden="true">🎯</span>
-            <h3 class="mt-4 text-xl font-semibold text-eerie">Personnalisation</h3>
-            <p class="mt-2 text-eerie">Des réponses adaptées à chaque jeune et chaque contexte.</p>
-          </div>
-          <div class="bg-white rounded-2xl p-8 text-center shadow-md border border-sand">
-            <span class="text-4xl" aria-hidden="true">🤝</span>
-            <h3 class="mt-4 text-xl font-semibold text-eerie">Partenariat</h3>
-            <p class="mt-2 text-eerie">Travail main dans la main avec familles et professionnels.</p>
-          </div>
-        </div>
+        <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">Travail en réseau</h2>
+        <p class="mt-8 max-w-3xl mx-auto text-lg text-eerie leading-relaxed text-center">
+          EDAME, c'est le lien avec les <strong>familles</strong> et les <strong>écoles</strong>, et un travail en collaboration avec les <strong>PCPE</strong>, <strong>médecins traitants</strong>, <strong>psychiatres</strong>, <strong>psychologues</strong> et autres partenaires du projet du jeune.
+        </p>
       </div>
     </section>
 
     <section class="py-16 lg:py-24 bg-cream">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">Mon approche</h2>
-        <p class="mt-8 max-w-3xl mx-auto text-lg text-eerie leading-relaxed text-center">
-          Je privilégie une vision globale : l'enfant ou l'adolescent dans son environnement (famille, école, loisirs). L'objectif est de renforcer les compétences, l'autonomie et le lien de confiance, en définissant avec vous des objectifs clairs et un cadre d'intervention réaliste.
-        </p>
+        <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">Valeurs</h2>
+        <div class="mt-12 grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl p-8 text-center shadow-md border border-sand">
+            <span class="text-4xl" aria-hidden="true">💚</span>
+            <h3 class="mt-4 text-xl font-semibold text-eerie">Projet avec la famille</h3>
+            <p class="mt-2 text-eerie">Un dispositif unique, construit avec vous, au rythme du jeune.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow-md border border-sand">
+            <span class="text-4xl" aria-hidden="true">🎯</span>
+            <h3 class="mt-4 text-xl font-semibold text-eerie">Outils personnalisés</h3>
+            <p class="mt-2 text-eerie">Des pistes concrètes pour apaiser le quotidien.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-8 text-center shadow-md border border-sand">
+            <span class="text-4xl" aria-hidden="true">🤝</span>
+            <h3 class="mt-4 text-xl font-semibold text-eerie">Continuité scolaire & soins</h3>
+            <p class="mt-2 text-eerie">Maillage entre l'école, le domicile et les soins.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="py-16 bg-sage">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl font-bold text-white">Échanger sur votre situation</h2>
+        <h2 class="text-2xl font-bold text-white">Prendre contact</h2>
         <a href="/contact/" class="inline-flex items-center mt-6 px-6 py-3 bg-edame-green text-white font-semibold rounded-full hover:bg-edame-green-dark transition-colors">
-          Me contacter
+          Formulaire de contact
         </a>
       </div>
     </section>
