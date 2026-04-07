@@ -43,7 +43,7 @@ import { siteConfig } from '../config';
             <form
               id="contact-form"
               class="space-y-6"
-              action={siteConfig.formWebhook.url}
+              action={siteConfig.formWebhook.submitPath}
               method="POST"
               aria-label="Formulaire de contact"
               data-webhook-json="1"
@@ -150,7 +150,7 @@ import { siteConfig } from '../config';
               <p class="text-sm text-eerie text-center">Réponse sous 48h ouvrées en général.</p>
             </form>
 
-            <script define:vars={{ webhookUrl: siteConfig.formWebhook.url, formSource: siteConfig.formWebhook.source }}>
+            <script define:vars={{ submitPath: siteConfig.formWebhook.submitPath, formSource: siteConfig.formWebhook.source }}>
               (function () {
                 const form = document.getElementById('contact-form');
                 const statusEl = document.getElementById('contact-form-status');
@@ -190,16 +190,14 @@ import { siteConfig } from '../config';
                     }
                     statusEl.classList.add('hidden');
 
-                    const res = await fetch(webhookUrl, {
+                    const res = await fetch(submitPath, {
                       method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',
-                        Accept: 'application/json',
-                      },
+                      headers: { 'Content-Type': 'application/json' },
                       body: JSON.stringify(payload),
                     });
 
-                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    const result = await res.json().catch(() => ({}));
+                    if (!res.ok || result.ok !== true) throw new Error('send_failed');
 
                     showStatus('ok', 'Votre message a bien été envoyé. Nous vous répondrons dès que possible.');
                     form.reset();

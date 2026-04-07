@@ -22,10 +22,13 @@ export const siteConfig = {
     ville: 'Lille',
   },
 
-  /** Formulaire contact → Webhooky (Mailjet / automatisation) */
+  /**
+   * Formulaire contact → Webhooky (Mailjet / automatisation).
+   * Le navigateur envoie vers submitPath (PHP même origine) : le script relaye en JSON vers Webhooky et évite CORS.
+   * L’URL Webhooky est définie dans public/contact-webhook.php.
+   */
   formWebhook: {
-    url: 'https://webhooky.builders/webhook/form/38e0d8ae-e5ad-458f-9570-e61da475c1a8',
-    /** Identifiant de provenance pour les flux downstream */
+    submitPath: '/contact-webhook.php',
     source: 'edame-fr',
   },
 
