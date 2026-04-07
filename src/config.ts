@@ -22,6 +22,13 @@ export const siteConfig = {
     ville: 'Lille',
   },
 
+  /** Formulaire contact → Webhooky (Mailjet / automatisation) */
+  formWebhook: {
+    url: 'https://webhooky.builders/webhook/form/38e0d8ae-e5ad-458f-9570-e61da475c1a8',
+    /** Identifiant de provenance pour les flux downstream */
+    source: 'edame-fr',
+  },
+
   legal: {
     status: 'Micro-entreprise',
     siret: 'XXX XXX XXX XXXXX',
