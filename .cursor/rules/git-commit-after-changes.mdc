@@ -1,0 +1,13 @@
+---
+description: Après des modifications sur ce dépôt, commit et push vers origin/main
+globs: "**/*"
+alwaysApply: true
+---
+
+Lorsque tu modifies des fichiers du projet EDAME (site Astro dans ce workspace) :
+
+1. Exécuter `git status` pour vérifier les changements.
+2. Créer un commit avec un message en français, clair et descriptif (une phrase complète).
+3. Pousser vers `origin` sur la branche `main` : `git push origin main`.
+
+Ne pas laisser de modifications importantes non commitées à la fin d’une tâche, sauf si l’utilisateur demande explicitement de ne pas committer.
