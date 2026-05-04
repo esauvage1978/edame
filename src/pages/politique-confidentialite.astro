@@ -20,10 +20,11 @@ import { siteConfig } from '../config';
         <section>
           <h2 class="text-xl font-semibold text-eerie mb-4">1. Responsable du traitement</h2>
           <p>
-            Les données personnelles collectées sur ce site sont traitées par :<br />
-            <strong>{siteConfig.name}</strong> – {siteConfig.title}<br />
+            Le responsable du traitement des données personnelles est <strong>{siteConfig.founderName}</strong>, dans le cadre du projet{' '}
+            <strong>{siteConfig.name}</strong> — {siteConfig.title}.<br />
             {siteConfig.legal.adresse}, {siteConfig.legal.codePostal} {siteConfig.legal.ville}<br />
-            Email : {siteConfig.contact.email}
+            Email :{' '}
+            <a href={`mailto:${siteConfig.contact.email}`} class="text-sage hover:underline">{siteConfig.contact.email}</a>
           </p>
         </section>
 
