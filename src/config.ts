@@ -38,7 +38,6 @@ export const siteConfig = {
   legal: {
     status: 'Micro-entreprise',
     siret: '928 785 542',
-    ape: 'XXXX',
     adresse: '266 rue nationale',
     codePostal: '59000',
     ville: 'Lille',
