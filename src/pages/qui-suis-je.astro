@@ -8,18 +8,17 @@ import { siteConfig } from '../config';
 <BaseLayout
   title={`Qui suis-je ? | ${siteConfig.name}`}
   description={`${siteConfig.founderName}, éducatrice spécialisée diplômée HEH Tournai 2014, fondatrice d'EDAME (${siteConfig.projectSince}). Educ à la Maison et à l'Ecole.`}
-  preloadImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=640&q=75"
+  preloadImage="/image/me.jpg"
 >
   <Header />
   <main>
-    <section class="relative py-20 lg:py-28 overflow-hidden">
+    <section class="relative py-20 lg:py-28 overflow-hidden min-h-[280px]">
       <div class="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=807&q=75"
-          srcset="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=640&q=75 640w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1024&q=75 1024w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&q=80 1920w"
+          src="/image/me.jpg"
           sizes="100vw"
           alt=""
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-top"
           loading="eager"
           fetchpriority="high"
           decoding="async"
