@@ -37,7 +37,7 @@ export const siteConfig = {
 
   legal: {
     status: 'Micro-entreprise',
-    siret: 'XXX XXX XXX XXXXX',
+    siret: '928 785 542',
     ape: 'XXXX',
     adresse: '266 rue nationale',
     codePostal: '59000',
