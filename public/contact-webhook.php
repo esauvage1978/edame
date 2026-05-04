@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Relais formulaire contact → Webhooky (JSON).
  * Évite le blocage CORS du navigateur (origine https://… → webhooky.builders).
  */
-$webhookUrl = 'https://webhooky.builders/webhook/form/38e0d8ae-e5ad-458f-9570-e61da475c1a8';
+$webhookUrl = 'https://webhooky.builders/webhook/form/2bdd0911-43ee-497e-82f7-cc10b332a07b';
 
 header('Content-Type: application/json; charset=UTF-8');
 
