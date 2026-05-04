@@ -1,5 +1,7 @@
 ---
-// Bandeau de consentement cookies - RGPD
+import { siteConfig } from '../config';
+
+const gaId = siteConfig.googleAnalyticsId;
 ---
 
 <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-eerie/95 text-white shadow-lg hidden">
@@ -19,10 +21,26 @@
   </div>
 </div>
 
-<script>
+<script define:vars={{ gaId }}>
   (function() {
     const COOKIE_CONSENT_KEY = 'cookie-consent';
     const COOKIE_CONSENT_DURATION = 365; // jours
+    let gtagLoaded = false;
+
+    function loadGoogleAnalytics() {
+      if (gtagLoaded || !gaId) return;
+      gtagLoaded = true;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', gaId);
+    }
 
     function setCookie(name: string, value: string, days: number) {
       const date = new Date();
@@ -50,10 +68,13 @@
 
     if (!consent) {
       showBanner();
+    } else if (consent === 'accepted') {
+      loadGoogleAnalytics();
     }
 
     document.getElementById('cookie-accept')?.addEventListener('click', () => {
       setCookie(COOKIE_CONSENT_KEY, 'accepted', COOKIE_CONSENT_DURATION);
+      loadGoogleAnalytics();
       hideBanner();
     });
 

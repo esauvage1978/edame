@@ -27,6 +27,9 @@ export const siteConfig = {
    * Le navigateur envoie vers submitPath (PHP même origine) : le script relaye en JSON vers Webhooky et évite CORS.
    * L’URL Webhooky est définie dans public/contact-webhook.php.
    */
+  /** Google Analytics 4 (gtag) — chargé uniquement si le visiteur accepte les cookies (voir CookieBanner) */
+  googleAnalyticsId: 'G-KE1PD9VG3Y',
+
   formWebhook: {
     submitPath: '/contact-webhook.php',
     source: 'edame-fr',
