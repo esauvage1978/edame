@@ -14,7 +14,7 @@ export const siteConfig = {
 
   contact: {
     phone: '06 79 92 74 53',
-    email: 'contact.edame@gmail.com',
+    email: 'contact@edame.fr',
     /** Secteur d'intervention */
     zone: 'Lille, Dunkerque, Armentières et environs',
     addressLine: '266 rue nationale',
