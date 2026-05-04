@@ -24,7 +24,8 @@ const gaId = siteConfig.googleAnalyticsId;
 <script define:vars={{ gaId }}>
   (function () {
     var COOKIE_CONSENT_KEY = 'cookie-consent';
-    var COOKIE_CONSENT_DURATION = 365;
+    /** ~13 mois, aligné CNIL / page « Gestion des cookies » */
+    var COOKIE_CONSENT_DURATION = 395;
     var gtagLoaded = false;
 
     function loadGoogleAnalytics() {
@@ -87,5 +88,17 @@ const gaId = siteConfig.googleAnalyticsId;
         hideBanner();
       });
     }
+
+    function clearConsentCookie() {
+      document.cookie =
+        COOKIE_CONSENT_KEY + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;SameSite=Lax';
+    }
+
+    document.querySelectorAll('[data-cookie-preferences]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        clearConsentCookie();
+        window.location.reload();
+      });
+    });
   })();
 </script>

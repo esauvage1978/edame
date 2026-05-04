@@ -34,7 +34,10 @@ import { siteConfig } from '../config';
             votre choix concernant les cookies. Ils ne nécessitent pas votre consentement.
           </p>
           <ul class="list-disc pl-6 mt-2 space-y-1">
-            <li><strong>cookie-consent</strong> : stocke votre préférence d'acceptation des cookies (durée : 13 mois)</li>
+            <li>
+              <strong>cookie-consent</strong> : stocke votre préférence d'acceptation des cookies (durée : environ 13 mois,
+              renouvelée à chaque choix sur le bandeau)
+            </li>
           </ul>
 
           <h3 class="text-lg font-medium text-eerie mt-6 mb-2">Cookies de fonctionnement</h3>
@@ -56,9 +59,22 @@ import { siteConfig } from '../config';
             Vous pouvez à tout moment modifier vos préférences en matière de cookies :
           </p>
           <ul class="list-disc pl-6 mt-2 space-y-1">
-            <li>En cliquant sur le lien « Gérer les cookies » dans le pied de page du site</li>
-            <li>En supprimant les cookies depuis les paramètres de votre navigateur</li>
+            <li>
+              En utilisant le bouton <strong>« Gérer les cookies »</strong> dans le pied de page : votre choix précédent est
+              effacé et le bandeau réapparaît pour que vous puissiez accepter ou refuser à nouveau (la page se recharge).
+            </li>
+            <li>Pour relire cette politique : lien « Politique cookies » dans le pied de page.</li>
+            <li>En supprimant les cookies depuis les paramètres de votre navigateur.</li>
           </ul>
+          <p class="mt-6">
+            <button
+              type="button"
+              data-cookie-preferences
+              class="inline-flex items-center px-5 py-2.5 rounded-full bg-sage-dark text-white text-sm font-semibold hover:bg-sage transition-colors"
+            >
+              Modifier mes choix (réafficher le bandeau)
+            </button>
+          </p>
           <p class="mt-4">
             Le refus de certains cookies peut affecter l'expérience de navigation sur le site.
           </p>
