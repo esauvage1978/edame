@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { siteConfig } from '../../config';
+import { getImageSrc } from '../../utils/images';
+import blogHeroImage from '../../assets/blog/vivre-avec-enfant-tdah-top.jpg';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+);
+
+const blogHeroSrc = getImageSrc(blogHeroImage);
+---
+
+<BaseLayout
+  title={`Blog parentalité et accompagnement | ${siteConfig.name}`}
+  description="Conseils, compréhension et outils pour les parents : TDAH, TOP, émotions, guidance parentale. Articles par Leduc Delphine, éducatrice spécialisée."
+  preloadImage={blogHeroSrc}
+>
+  <Header />
+  <main>
+    <section class="relative py-20 lg:py-28 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src={blogHeroSrc}
+          alt="Une mère et son fils adolescent en conversation"
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width={blogHeroImage.width}
+          height={blogHeroImage.height}
+        />
+        <div class="absolute inset-0 bg-eerie/50"></div>
+      </div>
+      <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl sm:text-5xl font-bold text-white">Blog</h1>
+        <p class="mt-4 text-xl text-white max-w-2xl">
+          Comprendre, se sentir moins seul et trouver des pistes concrètes pour accompagner votre enfant au quotidien.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-16 lg:py-24 bg-cream">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {posts.length === 0 ? (
+          <p class="text-center text-eerie text-lg">De nouveaux articles arrivent bientôt.</p>
+        ) : (
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <BlogCard post={post} />
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

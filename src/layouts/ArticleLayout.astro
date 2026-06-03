@@ -1,0 +1,169 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ArticleJsonLd from '../components/ArticleJsonLd.astro';
+import { siteConfig } from '../config';
+import { formatDateFr } from '../utils/format';
+import { getImageAbsoluteUrl, getImageSrc } from '../utils/images';
+import type { ImageMetadata } from 'astro';
+import '../styles/article-prose.css';
+
+interface Props {
+  title: string;
+  headline: string;
+  description: string;
+  author: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage: ImageMetadata;
+  heroImageAlt: string;
+  imageCredit?: string;
+  categories: string[];
+  tags: string[];
+  relatedLinks: { href: string; label: string }[];
+  faqSchema: { question: string; answer: string }[];
+  articleJsonLd?: boolean;
+  breadcrumbSchema?: boolean;
+}
+
+const {
+  title,
+  headline,
+  description,
+  author,
+  pubDate,
+  updatedDate,
+  heroImage,
+  heroImageAlt,
+  imageCredit,
+  categories,
+  tags,
+  relatedLinks,
+  faqSchema,
+  articleJsonLd = true,
+  breadcrumbSchema = true,
+} = Astro.props;
+
+const pageTitle = `${title} | Blog ${siteConfig.name}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const heroSrc = getImageSrc(heroImage);
+const heroAbsoluteUrl = getImageAbsoluteUrl(heroImage, Astro.site);
+---
+
+<BaseLayout title={pageTitle} description={description} image={heroAbsoluteUrl} ogType="article" preloadImage={heroSrc}>
+  <ArticleJsonLd
+    title={title}
+    description={description}
+    url={canonicalURL}
+    image={heroAbsoluteUrl}
+    pubDate={pubDate}
+    updatedDate={updatedDate}
+    author={author}
+    faqSchema={faqSchema}
+    articleJsonLd={articleJsonLd}
+    breadcrumbSchema={breadcrumbSchema}
+  />
+  <Header />
+  <main>
+    <article>
+      <header class="relative py-16 lg:py-24 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img
+            src={heroSrc}
+            alt={heroImageAlt}
+            class="w-full h-full object-cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            width={heroImage.width}
+            height={heroImage.height}
+          />
+          <div class="absolute inset-0 bg-eerie/60"></div>
+        </div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav class="text-sm text-white/90 mb-4" aria-label="Fil d'Ariane">
+            <ol class="flex flex-wrap items-center gap-2">
+              <li><a href="/" class="hover:underline">Accueil</a></li>
+              <li aria-hidden="true">/</li>
+              <li><a href="/blog/" class="hover:underline">Blog</a></li>
+            </ol>
+          </nav>
+          <div class="flex flex-wrap gap-2 mb-4">
+            {categories.map((cat) => (
+              <span class="text-xs font-semibold uppercase tracking-wide text-white bg-white/20 px-2 py-1 rounded backdrop-blur-sm">
+                {cat}
+              </span>
+            ))}
+          </div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">{headline}</h1>
+          <p class="mt-4 text-lg text-white/95 leading-relaxed">{description}</p>
+          <p class="mt-6 text-sm text-white/80">
+            <time datetime={pubDate.toISOString()}>Publié le {formatDateFr(pubDate)}</time>
+            {updatedDate && updatedDate.getTime() !== pubDate.getTime() && (
+              <>
+                {' '}
+                · <time datetime={updatedDate.toISOString()}>Mis à jour le {formatDateFr(updatedDate)}</time>
+              </>
+            )}
+            {' '}
+            · Par {author}
+          </p>
+          {imageCredit && (
+            <p class="mt-2 text-xs text-white/70">{imageCredit}</p>
+          )}
+        </div>
+      </header>
+
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div class="article-prose">
+          <slot />
+        </div>
+
+        {relatedLinks.length > 0 && (
+          <aside class="mt-12 p-6 bg-sand rounded-2xl border border-sage/20" aria-labelledby="related-heading">
+            <h2 id="related-heading" class="text-lg font-bold text-eerie mb-4">
+              Pour aller plus loin sur le site
+            </h2>
+            <ul class="space-y-2">
+              {relatedLinks.map((link) => (
+                <li>
+                  <a href={link.href} class="text-edame-dark font-medium hover:underline">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        )}
+
+        {tags.length > 0 && (
+          <p class="mt-8 text-sm text-sage-dark">
+            <span class="font-semibold text-eerie">Mots-clés :</span>{' '}
+            {tags.join(' · ')}
+          </p>
+        )}
+
+        <aside
+          class="mt-12 p-8 bg-white rounded-2xl shadow border border-sand text-center"
+          aria-labelledby="cta-article-heading"
+        >
+          <h2 id="cta-article-heading" class="text-2xl font-bold text-eerie">
+            Besoin d'un accompagnement personnalisé ?
+          </h2>
+          <p class="mt-3 text-eerie/90 max-w-xl mx-auto">
+            Chaque famille est unique. Un premier échange permet de faire le point sur votre situation et de voir comment
+            une éducatrice spécialisée peut vous soutenir au quotidien.
+          </p>
+          <a
+            href="/contact/"
+            class="mt-6 inline-block bg-edame-btn hover:bg-edame-btn-hover text-white font-semibold px-8 py-3 rounded-xl transition-colors"
+          >
+            Parler de votre situation
+          </a>
+        </aside>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
