@@ -6,8 +6,8 @@ pubDate: 2026-06-03
 updatedDate: 2026-06-03
 author: "Leduc Delphine"
 heroImage: ../../assets/blog/organiser-vacances-enfant-tnd.jpg
-heroImageAlt: "Une valise et des accessoires préparés pour partir en vacances avec un enfant"
-imageCredit: "Photo : Kindel Media / Pexels (licence libre)"
+heroImageAlt: "Une personne posant la main sur une valise, en train de préparer ses bagages avant le départ en vacances"
+imageCredit: "Photo : Ketut Subiyanto / Pexels (licence libre)"
 categories:
   - Parentalité
   - TND
