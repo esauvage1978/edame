@@ -16,16 +16,24 @@ const navLinks = [
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navigation principale">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <a href="/" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
-        <img
-          src="/image/cropped-logo-web-transparent-240.png"
-          srcset="/image/cropped-logo-web-transparent-240.png 240w, /image/cropped-logo-web-transparent.png 500w"
-          sizes="160px"
-          alt="EDAME"
-          class="h-10 lg:h-12 w-auto object-contain"
-          width="160"
-          height="48"
-          decoding="async"
-        />
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/image/logo-96.avif 1x, /image/logo-192.avif 2x, /image/logo-288.avif 3x"
+          />
+          <source
+            type="image/webp"
+            srcset="/image/logo-96.webp 1x, /image/logo-192.webp 2x, /image/logo-288.webp 3x"
+          />
+          <img
+            src="/image/logo-192.png"
+            alt="EDAME"
+            class="h-10 lg:h-12 w-auto object-contain"
+            width="96"
+            height="75"
+            decoding="async"
+          />
+        </picture>
       </a>
 
       <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-sage-dark hover:bg-sand transition-colors" aria-label="Ouvrir le menu">

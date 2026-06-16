@@ -13,7 +13,7 @@ Site statique pour **EDAME** — *Educ à la Maison et à l'Ecole* ([edame.fr](h
 ## Identité visuelle
 
 - Couleurs : `#2cafc4` (cyan), `#30d431` (vert)
-- Logo : `public/image/cropped-logo-web-transparent.png`
+- Logo : `public/image/cropped-logo-web-transparent.png` (source). Variantes web optimisées AVIF/WebP/PNG (`logo-96/192/288.*`) générées via `npm run logo` et servies en `<picture>` dans le header et le footer.
 - Favicons générés à partir du logo : `favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png`, `apple-touch-icon.png`, `android-chrome-*.png`, `favicon.svg`, `site.webmanifest`
 
 ## Configuration

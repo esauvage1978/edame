@@ -9,16 +9,25 @@ const currentYear = new Date().getFullYear();
     <div class="grid md:grid-cols-3 gap-8">
       <div>
         <div class="inline-block rounded-xl bg-white p-3 shadow-sm">
-          <img
-            src="/image/cropped-logo-web-transparent-240.png"
-            srcset="/image/cropped-logo-web-transparent-240.png 240w, /image/cropped-logo-web-transparent.png 500w"
-            sizes="120px"
-            alt="EDAME"
-            class="h-12 w-auto object-contain"
-            width="140"
-            height="48"
-            decoding="async"
-          />
+          <picture>
+            <source
+              type="image/avif"
+              srcset="/image/logo-96.avif 1x, /image/logo-192.avif 2x, /image/logo-288.avif 3x"
+            />
+            <source
+              type="image/webp"
+              srcset="/image/logo-96.webp 1x, /image/logo-192.webp 2x, /image/logo-288.webp 3x"
+            />
+            <img
+              src="/image/logo-192.png"
+              alt="EDAME"
+              class="h-12 w-auto object-contain"
+              width="96"
+              height="75"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
         <p class="font-semibold text-lg mt-3">{siteConfig.name}</p>
         <p class="text-white text-sm mt-1">{siteConfig.tagline}</p>

@@ -21,6 +21,8 @@ tags:
   - guidance parentale
   - éducatrice spécialisée
 relatedLinks:
+  - href: /blog/psychoeducation-tdah-enfant/
+    label: "Psychoéducation TDAH : comprendre pour mieux accompagner votre enfant"
   - href: /blog/vivre-avec-enfant-tdah-top/
     label: "Vivre avec son enfant TDAH-TOP : guide pour les parents"
   - href: /mes-services/

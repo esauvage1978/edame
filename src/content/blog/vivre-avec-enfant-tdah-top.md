@@ -20,6 +20,8 @@ tags:
   - parentalité difficile
   - éducatrice spécialisée
 relatedLinks:
+  - href: /blog/psychoeducation-tdah-enfant/
+    label: "Psychoéducation TDAH : comprendre pour mieux accompagner votre enfant"
   - href: /mes-services/
     label: Découvrir l'accompagnement EDAME (TDAH, TOP, TSA…)
   - href: /qui-suis-je/
