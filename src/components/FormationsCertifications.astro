@@ -2,6 +2,7 @@
 type Formation = {
   title: string;
   organization: string;
+  organizationUrl?: string;
   category: string;
   icon: string;
   accent: 'edame-green' | 'sage' | 'sage-dark';
@@ -10,7 +11,8 @@ type Formation = {
 const formations: Formation[] = [
   {
     title: 'Formation TDAH',
-    organization: 'Association HypersupersTDAH FRANCE',
+    organization: 'https://www.tdah-france.fr/',
+    organizationUrl: 'https://www.tdah-france.fr/',
     category: 'Neurodéveloppement',
     icon: '🧠',
     accent: 'edame-green',
@@ -125,7 +127,18 @@ const accentBorder: Record<Formation['accent'], string> = {
                 </h3>
                 <p class="mt-3 text-sm text-eerie/80 leading-relaxed">
                   <span class="sr-only">Organisme : </span>
-                  {formation.organization}
+                  {formation.organizationUrl ? (
+                    <a
+                      href={formation.organizationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-sage font-semibold underline hover:no-underline"
+                    >
+                      {formation.organization}
+                    </a>
+                  ) : (
+                    formation.organization
+                  )}
                 </p>
               </div>
             </div>
