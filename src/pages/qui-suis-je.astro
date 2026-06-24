@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormationsCertifications from '../components/FormationsCertifications.astro';
 import { siteConfig } from '../config';
 ---
 
@@ -74,7 +75,9 @@ import { siteConfig } from '../config';
       </div>
     </section>
 
-    <section class="py-16 lg:py-24 bg-sand">
+    <FormationsCertifications />
+
+    <section class="py-16 lg:py-24 bg-cream">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">Travail en réseau</h2>
         <p class="mt-8 max-w-3xl mx-auto text-lg text-eerie leading-relaxed text-center">
@@ -83,7 +86,7 @@ import { siteConfig } from '../config';
       </div>
     </section>
 
-    <section class="py-16 lg:py-24 bg-cream">
+    <section class="py-16 lg:py-24 bg-sand">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl lg:text-4xl font-bold text-eerie text-center">Valeurs</h2>
         <div class="mt-12 grid md:grid-cols-3 gap-8">

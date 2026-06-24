@@ -1,0 +1,142 @@
+---
+type Formation = {
+  title: string;
+  organization: string;
+  category: string;
+  icon: string;
+  accent: 'edame-green' | 'sage' | 'sage-dark';
+};
+
+const formations: Formation[] = [
+  {
+    title: 'Formation TDAH',
+    organization: 'Association HypersupersTDAH FRANCE',
+    category: 'Neurodéveloppement',
+    icon: '🧠',
+    accent: 'edame-green',
+  },
+  {
+    title: 'Évolution du potentiel suicidaire avec l\'échelle RUD (Risque – Urgence – Suicide)',
+    organization: 'Groupe EMEIS',
+    category: 'Prévention & évaluation',
+    icon: '🆘',
+    accent: 'sage-dark',
+  },
+  {
+    title: 'Urgences psychiatriques',
+    organization: 'Groupe de formation certifié Transfaire',
+    category: 'Urgences psychiatriques',
+    icon: '🏥',
+    accent: 'sage',
+  },
+  {
+    title: 'Troubles bipolaires',
+    organization: 'Formation complémentaire',
+    category: 'Santé mentale',
+    icon: '💭',
+    accent: 'sage',
+  },
+  {
+    title: 'Droits et hospitalisation des patients et des mineurs',
+    organization: 'IMAGORA',
+    category: 'Cadre juridique',
+    icon: '⚖️',
+    accent: 'sage-dark',
+  },
+  {
+    title: 'PECS — Communication par échange d\'images',
+    organization: 'Groupe de formation PYRAMID',
+    category: 'Communication',
+    icon: '💬',
+    accent: 'edame-green',
+  },
+  {
+    title: 'AFGSU 1',
+    organization: 'Groupe de formation CESU 78',
+    category: 'Secourisme',
+    icon: '🩹',
+    accent: 'edame-green',
+  },
+];
+
+const domaines = [
+  'Neurodéveloppement',
+  'Urgences & santé mentale',
+  'Communication',
+  'Cadre juridique & secourisme',
+];
+
+const accentBorder: Record<Formation['accent'], string> = {
+  'edame-green': 'border-t-edame-green',
+  sage: 'border-t-sage',
+  'sage-dark': 'border-t-sage-dark',
+};
+---
+
+<section class="py-16 lg:py-24 bg-sand" aria-labelledby="formations-title">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <p class="text-sm font-semibold uppercase tracking-wider text-sage-dark">Parcours de formation</p>
+      <h2 id="formations-title" class="mt-3 text-3xl lg:text-4xl font-bold text-eerie">
+        Formations & certifications
+      </h2>
+      <p class="mt-6 text-lg text-eerie leading-relaxed">
+        Au-delà du diplôme d'éducatrice spécialisée, je me forme en continu pour répondre aux besoins
+        des jeunes, des familles et du réseau de soins — de la prévention à l'urgence, en passant par
+        la communication et le cadre juridique.
+      </p>
+    </div>
+
+    <ul
+      class="mt-10 flex flex-wrap justify-center gap-2 sm:gap-3"
+      aria-label="Domaines couverts par les formations"
+    >
+      {domaines.map((domaine) => (
+        <li>
+          <span class="inline-flex items-center rounded-full bg-white/80 border border-sage/30 px-4 py-1.5 text-sm font-medium text-sage-dark shadow-sm">
+            {domaine}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    <ul class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
+      {formations.map((formation) => (
+        <li>
+          <article
+            class:list={[
+              'h-full rounded-2xl bg-white p-6 shadow-md border border-sand border-t-4 transition-shadow hover:shadow-lg',
+              accentBorder[formation.accent],
+            ]}
+          >
+            <div class="flex items-start gap-4">
+              <span
+                class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-cream text-2xl"
+                aria-hidden="true"
+              >
+                {formation.icon}
+              </span>
+              <div class="min-w-0 flex-1">
+                <p class="text-xs font-semibold uppercase tracking-wide text-sage-dark">
+                  {formation.category}
+                </p>
+                <h3 class="mt-1 text-base font-bold text-eerie leading-snug">
+                  {formation.title}
+                </h3>
+                <p class="mt-3 text-sm text-eerie/80 leading-relaxed">
+                  <span class="sr-only">Organisme : </span>
+                  {formation.organization}
+                </p>
+              </div>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <p class="mt-10 text-center text-sm text-eerie/70 max-w-2xl mx-auto">
+      Ces formations nourrissent mon accompagnement au quotidien : repérage des situations à risque,
+      outils de communication adaptés, travail en réseau et respect du cadre légal.
+    </p>
+  </div>
+</section>
