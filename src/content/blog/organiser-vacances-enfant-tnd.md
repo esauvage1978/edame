@@ -21,6 +21,8 @@ tags:
   - guidance parentale
   - éducatrice spécialisée
 relatedLinks:
+  - href: /blog/preparer-rentree-des-classes-enfant/
+    label: "Rentrée des classes : accompagner son enfant avant le jour J"
   - href: /blog/psychoeducation-tdah-enfant/
     label: "Psychoéducation TDAH : comprendre pour mieux accompagner votre enfant"
   - href: /blog/vivre-avec-enfant-tdah-top/
